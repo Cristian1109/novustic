@@ -1,14 +1,11 @@
-from flask import Flask, redirect
+from flask import Flask, send_file
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return redirect("https://sites.google.com/view/novusticsas/p%C3%A1gina-principal")
-
-@app.route('/info')
-def info():
-    return "Servidor Novustic funcionando correctamente"
+    # Envía un archivo HTML en lugar de redirigir
+    return send_file('index.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=10000)
